@@ -13,15 +13,7 @@
 //     alert("Не знаєте? ECMAScript!");
 // }
 
-//Напишіть программу, яка отримує від користувача
-//число (кількість хвилин) и виводить у консоль
-//рядок у форматі годин та хвилин
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-// 70 === 01:10
-
-
-
-
+// ===========================================
 //Напишіть цикл, який виводить в консоль
 //числа от max до min по зменьшенню
 //Виведіть в консоль суму усіх парних чисел
@@ -143,33 +135,16 @@
 // const number = prompt("введіть число");
 // console.log(number);
 
-// const hours = number / 60;
+// const hours = Math.floor (number / 60);
 // console.log(hours);
 
+// const minutes = number % 60;
+// console.log(minutes);
+
+// const modifiedHours = String(hours).padStart(2, "0");
+// const modifiedMinutes = String(minutes).padStart(2, "0");
+// console.log(`${modifiedHours} : ${modifiedMinutes}`)
 /******************************************************************* */
-
-//Напишіть программу, яка отримує від користувача
-//число (кількість хвилин) и виводить у консоль
-//рядок у форматі годин та хвилин
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-// 70 === 01:10
-
-// const number = prompt("Введіть число");
-// console.log(number);
-
-// const hour = Math.floor(number / 60);
-// console.log(hour);
-
-// const minute = number % 60;
-// console.log(minute);
-
-// const modifiedHour = String(hour).padStart(2, "0");
-// const modifiedMinute = String(minute).padStart(2, "0");
-// console.log(`${modifiedHour}:${modifiedMinute}`);
-
-/******************************************** */
-
-
 //При завантаженні сторінки користувачу пропонується
 //в prompt ввести число. Ввод додається к значенню
 //змінної total.
@@ -180,25 +155,35 @@
 //Робити перевірку,що користувач ввів саме число,
 //а не довільний набір символів, не потрібно.
 
-// let number = prompt("Введіть число");
+// let num = prompt("Введіь число");
 // let total = 0;
-
-// while (number) {
-//     total += Number(number);
-//   number = prompt("Введіть число");
+// while(num){
+//     if (!Number.isNaN(Number(num))) {
+//         total += Number(num);
+//     }
+    
+//     num = prompt("Введіть число")
 // }
-// alert(`Загальна сумма введенних чисел дорівнює ${total}.`);
+// alert(`Загальна сумма введенних чисел дорівнює ${total}.`)
+// =================================================
+// В змінній minuteValue є число від 0 до 59.
+// Визначте до якої чверті години входить
+// це число(в першу, другу, треттю чи четверту).
 
-// while (number) {
-// Перевірка на число
-// 	if (!Number.isNaN(Number(number))) {
-// 		total += Number(number);
-// 	}
-// 	number = prompt("Введіть число");
+// const minuteValue = Math.floor(Math.random() * (59 - 0) + 0);
+// console.log(minuteValue);
+// if(minuteValue >= 0 && minuteValue < 15){
+//     console.log("Перша чверть");
+// } else if(minuteValue >= 16 && minuteValue < 30){
+//     console.log("Дргуа четверть");
+// }  else if (minuteValue >=31 && minuteValue < 45 ){
+//     console.log("Третя четверть");
+// }else{
+//     console.log("Четверта четверть");
 // }
-// alert(`Загальна сумма введенних чисел дорівнює ${total}.`);
 
-/**************************** */
+/******************************************** */
+
 
 // В змінній minuteValue є число від 0 до 59.
 // Визначте до якої чверті години входить
@@ -230,8 +215,7 @@
 // 	alert("Четверта чверть");
 // }
 
-/******************************************* */
-
+// +================================
 //Напишіть цикл, який пропонує ввести
 //число більше 100 через prompt.
 //Якщо користувач ввів інше число - попросити
@@ -239,34 +223,141 @@
 //Цикл повинен питати число, доки користувач не
 //введе число більше 100, чи не натисне кнопку
 //Cancel в prompt
+// let num = prompt("ВВедіть число більше 100")
+// while(num < 100){
+//     if(num === null){
+//         break;
+//     }
 
-// let number = prompt("Введіть число");
-
-// while (number < 100) {
-// 	if (number === null) {
-// 		break;
-// 	}
-// 	number = prompt("Введіть число");
+//     num =  prompt("ВВедіть число більше 100");
 // }
-// alert(number ? number : " Скасовано");
-// if (number) {
-// 	alert(number);
-// } else {
-// 	alert("Скасовано");
-// }
+// alert(num || "Скасовано")
 
-// alert(number || "Скасовано");
-
-/********************************************** */
-
+// =====================================
 // Є рядок, який складається із символів, наприклад, 'abcde'.
 // Перевірте, що першим символом цього рядка є літера 'a'.
 // Якщо це так - виведіть 'Так', в іншому випадку - 'Ні'.
 
 // const message = "Ahgkdkd";
-
-// if (message[0].toLowerCase() === "a") {
-// 	alert("Yes");
-// } else {
-// 	alert("No");
+// if(message[0].toLowerCase() === "a"){
+//     alert("Yes")
+// } else{
+//     alert("No")
 // }
+
+/******************************************* */
+
+
+
+// 3. Напиши скрипт, який приводить у консоль рядок 'Це додатнє число', якщо
+// в prompt користував ввів число більше за нуль. Якщо було введено нуль,
+// виводь у консоль рядок 'Це нуль'. Якщо передали від'ємне число, у консолі
+// має бути рядок 'Це від`ємне число'
+// const num = Number(prompt("Get a number")) ;
+// if(num > 0){
+//     console.log("Це додатнє число");
+// } else if (num === 0){
+//     console.log("'Це null'");
+// }else{
+//     console.log("'Це відємне число'");
+// }
+// const numberFromPrompt = Number(prompt("Write your random number"));
+
+// if (numberFromPrompt > 0) {
+//   console.log("Це додатнє число");
+// } else if (numberFromPrompt === 0) {
+//   console.log("Це нуль");
+// } else {
+//   console.log("Це від`ємне число");
+// }
+
+// ================================================
+// 4. Напиши скрипт, який перевіряє чи закінчується значення змінної link
+//   символом '/'. Якщо ні, додай у кінець посилання цей символ  
+// */
+
+// let link = "https://instagram.com/andrii_shevchukk";
+// if(!link.endsWith("/")){
+//     link += "/"
+// }
+// console.log(link)
+
+// =========================
+// 5. Напиши скрипт для відображення дедлайну - часу здачі проєкту. Використовуй
+//   конструкцію switch...case
+// Якщо до дедлайну 0 днів - виведи рядок C
+//   Якщо до дедлайну 1 день - виведи рядок 'Завтра'
+//   Якщо до дедлайну 2 дні - виведи рядок 'Післязавтра'
+//   Якщо до дедлайну 3+ днів - виведи рядок 'Можна відпочити :)'
+// const dedlDays = 0;
+// switch(dedlDays){
+//     case 0:
+//         console.log('Сьогодні');
+//         break;
+//     case 1:
+//         console.log('Завтра')
+//         break;
+//     case 2:
+//         console.log('Післязавтра');
+//         break;
+//     default:
+//         console.log("Можна відпочити:)") ;    
+//         break; 
+// }
+// console.log(dedlDays)
+// ===============================================
+
+// 6. Напиши скрипт котрий порахує суму чисел від 1 до 10 та виведе у консоль результат 
+// */
+// let total = 0;
+// for(let i = 1; i <= 10; i += 1 ){
+//     total += i;
+// }
+// console.log(total)
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// 7. Напиши цикл for який виводить у консоль браузера числа за зростанням від
+//   min дo max, але якщо число кратне 5
+// */
+ 
+// let min = 1;
+// let max = 53;
+// for(let i = min; i < max; i += 1){
+//     if(i % 5 !== 0){
+//         continue;
+//     }console.log(i)
+// }
+
+// 8. Напишіть скрипт який порахує скільки на проміжку від from до to було чисел,
+// які є кратними 7
+// const from = 11;
+// const to = 115;
+// let total = 0;
+// for(let i = from; i <= to; i += 1){
+//     if(i % 7 === 0){
+// total += i;
+//     }
+//     console.log(total)
+// }
+// ========================================================
+// 9. Напишіть скрипт для світлофора, де користувач може ввести назву кольору
+//   у prompt і в залежності від того який був введений колір відображатимуться
+//   різні повідомлення через alert. Використовуй конструкцію switch case
+//   const trafficLight = prompt("Введіть колір")
+//   switch(trafficLight){
+//     case "red":
+//         alert("Stop!");
+//         break;
+//     case "orange":
+//         alert("Attation!");
+//         break;
+//     case "green":
+//         alert("GO!");
+//         break;
+//         default:
+//             alert(" Undefined color");
+//             break;        
+//   }
+//   console.log(trafficLight)
+
+// ===========================
